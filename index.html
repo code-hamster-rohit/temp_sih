@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Visualization</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      const chardata = {
+        type: "bar",
+        data: {
+          labels: [
+            "21MC3002",
+            "21MC3003",
+            "21MC3005",
+            "21MC3006",
+            "21MC3009",
+            "21MC3012",
+            "21MC3013",
+            "21MC3014",
+            "21MC3015",
+            "21MC3016",
+            "21MC3017",
+            "21MC3018",
+            "21MC3019",
+            "21MC3020",
+            "21MC3021",
+            "21MC3024",
+            "21MC3025",
+            "21MC3026",
+            "21MC3027",
+            "21MC3028",
+            "21MC3029",
+          ],
+          datasets: [
+            {
+              label: "Marks",
+              data: [
+                7.1, 8.7, 7.2, 6.3, 8.3, 9, 7.99, 7.5, 7.2, 6.9, 8.7, 8.2, 6.5,
+                6.9, 7, 7.5, 9.87, 7, 7.2, 8.2, 8,
+              ],
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+              borderColor: "rgba(54, 162, 235, 1)",
+              borderWidth: 2,
+              hoverBackgroundColor: "rgba(54, 162, 235, 0.4)",
+              hoverBorderColor: "rgba(54, 162, 235, 1)",
+              hoverBorderWidth: 3,
+              barThickness: 20,
+              maxBarThickness: 30,
+              minBarLength: 5,
+              borderRadius: 4,
+              barPercentage: 0.9,
+              categoryPercentage: 0.8,
+              indexAxis: "x",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+              position: "top",
+            },
+            title: {
+              display: true,
+              text: "Marks of Students",
+            },
+          },
+          scales: {
+            x: {
+              stacked: true,
+              grid: {
+                offset: true,
+              },
+            },
+            y: {
+              stacked: true,
+              beginAtZero: true,
+            },
+          },
+          elements: {
+            bar: {
+              borderSkipped: "bottom",
+              inflateAmount: "auto",
+            },
+          },
+          interaction: {
+            mode: "index",
+            intersect: false,
+          },
+        },
+      };
+
+      const ctx = document.querySelector("canvas").getContext("2d");
+      const myChart = new Chart(ctx, chardata);
+    </script>
+  </body>
+</html>
